@@ -71,8 +71,15 @@ function toggleTheme() {
 }
 
 // Language Logic
-window.switchLang = (lang) => {
-  if (lang === currentLang) return; // No need to switch if same
+// Language Logic
+window.switchLang = (lang, btn) => {
+  if (lang === currentLang) {
+    if (btn) {
+      btn.classList.add('animate-shake');
+      setTimeout(() => btn.classList.remove('animate-shake'), 400); // Remove after animation
+    }
+    return;
+  }
 
   document.body.classList.add('lang-switching');
 
@@ -276,15 +283,17 @@ async function initLocationAndTime() {
     // Check if we already have location stored to avoid API calls on every reload (optional, but good practice)
     // For now, let's fetch always to ensure accuracy.
 
-    // Using a public IP API. ipapi.co is reliable for basics.
-    const response = await fetch('https://ipapi.co/json/');
+    // Using ipwho.is as it is free and has fewer restrictions
+    const response = await fetch('https://ipwho.is/');
     if (!response.ok) throw new Error('Location fetch failed');
     const data = await response.json();
 
+    if (!data.success) throw new Error(data.message || 'Location lookup failed');
+
     userLocation = {
-      country: data.country_name,
+      country: data.country,
       countryCode: data.country_code, // e.g., 'DE', 'US', 'IN'
-      timezone: data.timezone,
+      timezone: data.timezone.id,
       flag: getFlagEmoji(data.country_code || 'US')
     };
 
