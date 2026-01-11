@@ -75,11 +75,14 @@ function toggleTheme() {
 window.switchLang = (lang, btn) => {
   if (lang === currentLang) {
     if (btn) {
+      // Find the wrapper to shake, or fallback to btn (though wrapper is expected)
+      const shaker = btn.querySelector('.shake-wrapper') || btn;
+
       // Remove triggers reflow to restart animation if clicked quickly again
-      btn.classList.remove('animate-shake');
-      void btn.offsetWidth; // Trigger reflow
-      btn.classList.add('animate-shake');
-      setTimeout(() => btn.classList.remove('animate-shake'), 820); // Match duration
+      shaker.classList.remove('animate-shake');
+      void shaker.offsetWidth; // Trigger reflow
+      shaker.classList.add('animate-shake');
+      setTimeout(() => shaker.classList.remove('animate-shake'), 820); // Match duration
     }
     return;
   }
