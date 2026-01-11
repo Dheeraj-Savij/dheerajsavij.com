@@ -75,11 +75,21 @@ function toggleTheme() {
 window.switchLang = (lang, btn) => {
   if (lang === currentLang) {
     if (btn) {
+      // Remove triggers reflow to restart animation if clicked quickly again
+      btn.classList.remove('animate-shake');
+      void btn.offsetWidth; // Trigger reflow
       btn.classList.add('animate-shake');
-      setTimeout(() => btn.classList.remove('animate-shake'), 400); // Remove after animation
+      setTimeout(() => btn.classList.remove('animate-shake'), 820); // Match duration
     }
     return;
   }
+
+  // Visual Anchoring: Find element in middle of viewport
+  const centerEl = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
+  const anchorId = centerEl ? (centerEl.id || centerEl.closest('[id]')?.id) : null;
+  const anchor = anchorId ? document.getElementById(anchorId) : null;
+  // Fallback: Percentage of scroll
+  const scrollRatio = window.scrollY / document.body.scrollHeight;
 
   document.body.classList.add('lang-switching');
 
@@ -88,8 +98,14 @@ window.switchLang = (lang, btn) => {
     localStorage.setItem('lang', lang);
     updateContent();
 
-    // Slight delay to allow DOM to update before showing again
     requestAnimationFrame(() => {
+      // Restore Scroll Position
+      if (anchor) {
+        anchor.scrollIntoView({ block: 'center', behavior: 'instant' }); // Instant to avoid movement feeling
+      } else {
+        window.scrollTo(0, scrollRatio * document.body.scrollHeight);
+      }
+
       document.body.classList.remove('lang-switching');
     });
   }, 300);
