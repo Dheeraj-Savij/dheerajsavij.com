@@ -266,6 +266,14 @@ function setupScrollAnimations() {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-fade-in-up');
         entry.target.classList.remove('opacity-0');
+        
+        // Remove animation class after it finishes to avoid clashing with hover transforms
+        const onAnimationEnd = () => {
+          entry.target.classList.remove('animate-fade-in-up');
+          entry.target.removeEventListener('animationend', onAnimationEnd);
+        };
+        entry.target.addEventListener('animationend', onAnimationEnd);
+
         observer.unobserve(entry.target);
       }
     });
@@ -285,8 +293,7 @@ function setupScrollAnimations() {
   const projectsContainer = document.getElementById('projects-container');
   if (projectsContainer) observer.observe(projectsContainer);
 
-  const langGrid = document.getElementById('lang-grid');
-  if (langGrid) observer.observe(langGrid);
+  // Note: lang-grid itself is not observed to avoid double-animation with its delayed children
 
   // Observe Elements with .animate-on-scroll class (newly added)
   document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
