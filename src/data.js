@@ -23,22 +23,16 @@ export const translations = {
             title: "My Educational Path",
             steps: [
                 {
-                    year: "2024 - Present",
+                    year: "2024 - 2028",
                     title: "CBSE High School",
-                    desc: "Completing schooling in Dubai with a focus on Commerce and Mathematics.",
+                    desc: "Currently pursuing a Commerce-focused curriculum with an emphasis on Mathematics, Accountancy, Business Studies and Economics.",
                     location: "Dubai, UAE"
                 },
                 {
                     year: "Upcoming",
-                    title: "Studienkolleg (W-Kurs)",
-                    desc: "Preparatory course for Economics and Social Sciences universities in Germany.",
-                    location: "Germany"
-                },
-                {
-                    year: "Future Goal",
-                    title: "University of Mannheim",
-                    desc: "Aspiring to study Business Administration (BBA) followed by the prestigious- Mannheim Master in Management (MMM).",
-                    location: "Mannheim, Germany"
+                    title: "The Next Chapter",
+                    desc: "Preparing for an ambitious leap into the world of international management and innovation. The details remain a secret for now.",
+                    location: "???"
                 }
             ]
         },
@@ -86,22 +80,16 @@ export const translations = {
             title: "Mein Bildungsweg",
             steps: [
                 {
-                    year: "2024 - Heute",
+                    year: "2024 - 2028",
                     title: "CBSE High School",
-                    desc: "Schulabschluss in Dubai mit Schwerpunkt auf Wirtschaft und Mathematik.",
+                    desc: "Derzeit verfolge ich einen kaufmännischen Lehrplan mit Schwerpunkt auf Mathematik, Buchhaltung, Betriebswirtschaftslehre und Volkswirtschaftslehre.",
                     location: "Dubai, VAE"
                 },
                 {
                     year: "Bevorstehend",
-                    title: "Studienkolleg (W-Kurs)",
-                    desc: "Vorbereitungskurs für wirtschafts- und sozialwissenschaftliche Studiengänge in Deutschland.",
-                    location: "Deutschland"
-                },
-                {
-                    year: "Zukünftiges Ziel",
-                    title: "Universität Mannheim",
-                    desc: "Angestrebtes Studium der Betriebswirtschaftslehre (BBA), gefolgt vom renommierten Mannheim Master in Management (MMM).",
-                    location: "Mannheim, Deutschland"
+                    title: "Das nächste Kapitel",
+                    desc: "Vorbereitung auf einen bedeutenden Sprung in meinem beruflichen Werdegang. Die Details bleiben vorerst ein Geheimnis.",
+                    location: "???"
                 }
             ]
         },
@@ -149,22 +137,16 @@ export const translations = {
             title: "എന്റെ വിദ്യാഭ്യാസ യാത്ര",
             steps: [
                 {
-                    year: "2024 - ഇപ്പോൾ",
+                    year: "2024 - 2028",
                     title: "CBSE ഹൈസ്കൂൾ",
-                    desc: "കൊമേഴ്സ്, മാത്തമാറ്റിക്സ് എന്നിവയിൽ ശ്രദ്ധ കേന്ദ്രീകരിച്ച് ദുബായിൽ സ്കൂൾ വിദ്യാഭ്യാസം പൂർത്തിയാക്കുന്നു.",
+                    desc: "ഗണിതം, അക്കൗണ്ടൻസി, ബിസിനസ്സ് സ്റ്റഡീസ്, ഇക്കണോമിക്സ് എന്നിവയ്ക്ക് മുൻഗണന നൽകിക്കൊണ്ട് കൊമേഴ്‌സ് അധിഷ്ഠിത പാഠ്യപദ്ധതി നിലവിൽ പിന്തുടരുന്നു.",
                     location: "ദുബായ്, യുഎഇ"
                 },
                 {
                     year: "ഉടൻ",
-                    title: "സ്റ്റുഡിയൻകൊളേഗ് (W-Kurs)",
-                    desc: "ജർമ്മനിയിലെ സർവകലാശാലാ പഠനത്തിനായുള്ള തയ്യാറെടുപ്പ് കോഴ്സ്.",
-                    location: "ജർമ്മനി"
-                },
-                {
-                    year: "ഭാവി ലക്ഷ്യം",
-                    title: "മാൻഹൈം സർവകലാശാല",
-                    desc: "പ്രശസ്തമായ മാൻഹൈം സർവകലാശാലയിൽ നിന്നും ബിസിനസ് അഡ്മിനിസ്ട്രേഷനിൽ ബിരുദവും (BBA) മാനേജ്മെന്റിൽ ബിരുദാനന്തര ബിരുദവും (MMM) നേടാൻ ആഗ്രഹിക്കുന്നു.",
-                    location: "മാൻഹൈം, ജർമ്മനി"
+                    title: "അടുത്ത അധ്യായം",
+                    desc: "അന്താരാഷ്ട്ര ബിസിനസ്സ് രംഗത്തേക്കുള്ള വലിയൊരു ചുവടുവെപ്പിന് തയ്യാറെടുക്കുന്നു. വിവരങ്ങൾ ഇപ്പോൾ രഹസ്യമാണ്.",
+                    location: "???"
                 }
             ]
         },
@@ -212,22 +194,16 @@ export const translations = {
             title: "मेरी शैक्षिक यात्रा",
             steps: [
                 {
-                    year: "2024 - वर्तमान",
+                    year: "2024 - 2028",
                     title: "CBSE हाई स्कूल",
-                    desc: "दुबई में कॉमर्स और गणित पर ध्यान केंद्रित करते हुए स्कूली शिक्षा पूरी कर रहा हूँ।",
+                    desc: "वर्तमान में गणित, अकाउंटेंसी, बिजनेस स्टडीज और इकोनॉमिक्स पर जोर देते हुए कॉमर्स-केंद्रित पाठ्यक्रम का अनुसरण कर रहा हूँ।",
                     location: "दुबई, संयुक्त अरब अमीरात"
                 },
                 {
                     year: "आगामी",
-                    title: "स्टुडियनकोलेग (W-Kurs)",
-                    desc: "जर्मनी में अर्थशास्त्र और सामाजिक विज्ञान विश्वविद्यालयों के लिए प्रारंभिक पाठ्यक्रम।",
-                    location: "जर्मनी"
-                },
-                {
-                    year: "भविष्य का लक्ष्य",
-                    title: "मैनहेम यूनिवर्सिटी",
-                    desc: "बिज़नेस एडमिनिस्ट्रेशन (BBA) और उसके बाद प्रतिष्ठित मैनहेम मास्टर इन मैनेजमेंट (MMM) का अध्ययन करने की आकांक्षा।",
-                    location: "मैनहेम, जर्मनी"
+                    title: "अगला अध्याय",
+                    desc: "पेशेवर सफर में एक बड़ी छलांग की तैयारी। विवरण अभी गुप्त हैं।",
+                    location: "???"
                 }
             ]
         },
