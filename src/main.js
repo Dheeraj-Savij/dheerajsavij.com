@@ -75,24 +75,27 @@ function toggleTheme() {
 window.switchLang = (lang, btn) => {
   if (lang === currentLang) {
     if (btn) {
-      // Find the wrapper to shake, or fallback to btn (though wrapper is expected)
       const shaker = btn.querySelector('.shake-wrapper') || btn;
-
-      // Remove triggers reflow to restart animation if clicked quickly again
       shaker.classList.remove('animate-shake');
-      void shaker.offsetWidth; // Trigger reflow
+      void shaker.offsetWidth;
       shaker.classList.add('animate-shake');
-      setTimeout(() => shaker.classList.remove('animate-shake'), 820); // Match duration
+      setTimeout(() => shaker.classList.remove('animate-shake'), 820);
     }
     return;
   }
 
-  // Visual Anchoring: Find element in middle of viewport
+  // Visual Anchoring: Find specific element in middle of viewport
   const centerEl = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
-  const anchorId = centerEl ? (centerEl.id || centerEl.closest('[id]')?.id) : null;
-  const anchor = anchorId ? document.getElementById(anchorId) : null;
+  const anchor = centerEl ? (centerEl.closest('[id]')) : null;
+
+  // Save both the anchor and its relative position to the viewport top
+  let anchorTopOffset = 0;
+  if (anchor) {
+    anchorTopOffset = anchor.getBoundingClientRect().top;
+  }
+
   // Fallback: Percentage of scroll
-  const scrollRatio = window.scrollY / document.body.scrollHeight;
+  const scrollRatio = window.scrollY / (document.body.scrollHeight - window.innerHeight);
 
   document.body.classList.add('lang-switching');
 
@@ -103,10 +106,14 @@ window.switchLang = (lang, btn) => {
 
     requestAnimationFrame(() => {
       // Restore Scroll Position
-      if (anchor) {
-        anchor.scrollIntoView({ block: 'center', behavior: 'instant' }); // Instant to avoid movement feeling
+      if (anchor && document.getElementById(anchor.id)) {
+        const newAnchor = document.getElementById(anchor.id);
+        const newAnchorPos = newAnchor.getBoundingClientRect().top;
+        window.scrollBy(0, newAnchorPos - anchorTopOffset);
       } else {
-        window.scrollTo(0, scrollRatio * document.body.scrollHeight);
+        // Fallback to ratio if anchor is lost
+        const newTotalHeight = document.body.scrollHeight - window.innerHeight;
+        window.scrollTo(0, scrollRatio * newTotalHeight);
       }
 
       document.body.classList.remove('lang-switching');
@@ -213,6 +220,7 @@ function renderTimeline(steps) {
 
     // Override my previous attempts. Simpler: render clean HTML.
 
+    wrapper.id = `timeline-item-${index}`;
     wrapper.className = `relative mb-12 w-full md:w-1/2 ${isEven ? 'md:mr-auto md:pr-12 md:text-right' : 'md:ml-auto md:pl-12 md:text-left'} pl-12 md:pl-0`;
 
     wrapper.innerHTML = `
@@ -238,8 +246,9 @@ function renderProjects(items) {
   const container = document.getElementById('projects-container');
   container.innerHTML = '';
 
-  items.forEach(item => {
+  items.forEach((item, index) => {
     const card = document.createElement('div');
+    card.id = `project-item-${index}`;
     card.className = 'group relative p-8 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700 hover:border-brand-accent dark:hover:border-brand-accent transition-colors duration-300 overflow-hidden';
 
     card.innerHTML = `
@@ -266,7 +275,7 @@ function setupScrollAnimations() {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-fade-in-up');
         entry.target.classList.remove('opacity-0');
-        
+
         // Remove animation class after it finishes to avoid clashing with hover transforms
         const onAnimationEnd = () => {
           entry.target.classList.remove('animate-fade-in-up');
