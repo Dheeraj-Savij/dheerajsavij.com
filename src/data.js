@@ -30,9 +30,9 @@ export const translations = {
                 },
                 {
                     year: "Upcoming",
-                    title: "The Next Chapter",
-                    desc: "Preparing for an ambitious leap into the world of international management and innovation. The details remain a secret for now.",
-                    location: "???"
+                    title: "The Sandbox",
+                    desc: "Actively exploring projects at the intersection of international management and finance. Initializing systems.",
+                    location: "Stealth Mode"
                 }
             ]
         },
@@ -87,9 +87,9 @@ export const translations = {
                 },
                 {
                     year: "Bevorstehend",
-                    title: "Das nächste Kapitel",
-                    desc: "Vorbereitung auf einen bedeutenden Sprung in meinem beruflichen Werdegang. Die Details bleiben vorerst ein Geheimnis.",
-                    location: "???"
+                    title: "The Sandbox",
+                    desc: "Aktive Erforschung von Projekten im Bereich internationales Management und Finanzen. Systeme werden initialisiert.",
+                    location: "Stealth Mode"
                 }
             ]
         },
@@ -144,9 +144,9 @@ export const translations = {
                 },
                 {
                     year: "ഉടൻ",
-                    title: "അടുത്ത അധ്യായം",
-                    desc: "അന്താരാഷ്ട്ര ബിസിനസ്സ് രംഗത്തേക്കുള്ള വലിയൊരു ചുവടുവെപ്പിന് തയ്യാറെടുക്കുന്നു. വിവരങ്ങൾ ഇപ്പോൾ രഹസ്യമാണ്.",
-                    location: "???"
+                    title: "The Sandbox",
+                    desc: "അന്താരാഷ്ട്ര മാനേജ്മെന്റിലും ഫിനാൻസിലും പുതിയ പ്രോജക്റ്റുകൾ സജീവമായി പര്യവേക്ഷണം ചെയ്യുന്നു. സിസ്റ്റം ഇനീഷ്യലൈസ് ചെയ്യുന്നു.",
+                    location: "Stealth Mode"
                 }
             ]
         },
@@ -201,9 +201,9 @@ export const translations = {
                 },
                 {
                     year: "आगामी",
-                    title: "अगला अध्याय",
-                    desc: "पेशेवर सफर में एक बड़ी छलांग की तैयारी। विवरण अभी गुप्त हैं।",
-                    location: "???"
+                    title: "The Sandbox",
+                    desc: "अंतरराष्ट्रीय प्रबंधन और वित्त के संगम पर प्रोजेक्ट्स की सक्रिय खोज। सिस्टम शुरू किया जा रहा है।",
+                    location: "Stealth Mode"
                 }
             ]
         },

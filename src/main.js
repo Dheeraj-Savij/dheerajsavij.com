@@ -212,21 +212,21 @@ function renderTimeline(steps) {
     // On mobile, always full width, pl-0.
     // The dot logic needs to handle mobile (left) vs desktop (center).
 
-    const dotMobile = `absolute left-[15px] top-8 w-4 h-4 bg-brand-accent rounded-full border-4 border-white dark:border-brand-dark z-20`;
-    // Desktop dot: Absolute at right edge (if left item) or left edge (if right item).
-    const dotDesktop = isEven
-      ? `md:right-[-9px] md:left-auto` // -9px to center on line (assuming spacing)
-      : `md:left-[-9px]`;
+    const isUpcoming = ['Upcoming', 'Bevorstehend', 'ഉടൻ', 'आगामी'].includes(step.year);
+    const pulseClass = isUpcoming ? 'animate-node-pulse shadow-[0_0_15px_rgba(0,113,227,0.5)]' : '';
 
-    // Override my previous attempts. Simpler: render clean HTML.
+    const dotMobile = `absolute left-[15px] top-8 w-4 h-4 bg-brand-accent rounded-full border-4 border-white dark:border-brand-dark z-20`;
+    const dotDesktop = isEven
+      ? `md:right-[-9px] md:left-auto`
+      : `md:left-[-9px]`;
 
     wrapper.id = `timeline-item-${index}`;
     wrapper.className = `relative mb-12 w-full md:w-1/2 ${isEven ? 'md:mr-auto md:pr-12 md:text-right' : 'md:ml-auto md:pl-12 md:text-left'} pl-12 md:pl-0`;
 
     wrapper.innerHTML = `
-        <div class="${dotMobile} ${dotDesktop} transform md:translate-y-0"></div>
+        <div class="${dotMobile} ${dotDesktop} transform md:translate-y-0 ${pulseClass}"></div>
         <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all duration-300 group">
-            <span class="inline-block mb-3 text-sm font-semibold text-brand-accent tracking-wide">
+            <span class="inline-block mb-3 text-xs font-mono font-bold text-brand-accent tracking-tighter uppercase bg-brand-accent/5 px-2 py-0.5 rounded border border-brand-accent/10">
               ${step.year}
             </span>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-accent transition-colors">${step.title}</h3>
