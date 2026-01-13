@@ -213,28 +213,54 @@ function renderTimeline(steps) {
     // The dot logic needs to handle mobile (left) vs desktop (center).
 
     const isUpcoming = ['Upcoming', 'Bevorstehend', 'ഉടൻ', 'आगामी'].includes(step.year);
-    const pulseClass = isUpcoming ? 'animate-node-pulse shadow-[0_0_15px_rgba(0,113,227,0.5)]' : '';
+    const opacityClass = isUpcoming ? 'opacity-95' : '';
+    const cardFont = isUpcoming ? 'font-mono text-xs md:text-sm' : 'text-slate-600 dark:text-slate-300';
+    const tagClass = isUpcoming
+      ? 'text-green-500 bg-green-500/10 border-green-500/20'
+      : 'text-brand-accent bg-brand-accent/5 border-brand-accent/10';
 
-    const dotMobile = `absolute left-[15px] top-8 w-4 h-4 bg-brand-accent rounded-full border-4 border-white dark:border-brand-dark z-20`;
-    const dotDesktop = isEven
-      ? `md:right-[-9px] md:left-auto`
-      : `md:left-[-9px]`;
+    // Dot or Spinner
+    let dotHtml = `<div class="absolute left-[15px] top-8 w-4 h-4 bg-brand-accent rounded-full border-4 border-white dark:border-brand-dark z-20 ${isEven ? 'md:right-[-9px] md:left-auto' : 'md:left-[-9px]'} transform md:translate-y-0"></div>`;
+
+    if (isUpcoming) {
+      dotHtml = `
+        <div class="absolute left-[7px] md:${isEven ? 'right-[-17px] left-auto' : 'left-[-17px]'} top-[26px] z-30 flex items-center justify-center w-8 h-8 bg-brand-light dark:bg-brand-dark rounded-full">
+          <svg class="animate-spin h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </div>
+      `;
+    }
+
+    const statusBarHtml = isUpcoming ? `
+      <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700/50">
+        <div class="flex justify-between text-[10px] mb-1 font-mono uppercase tracking-widest text-slate-400">
+          <span>Status: Initializing</span>
+          <span class="text-green-500">15%</span>
+        </div>
+        <div class="w-full bg-slate-100 dark:bg-slate-700/50 h-1 rounded-full overflow-hidden">
+          <div class="bg-green-500 h-full w-[15%] rounded-full shadow-[0_0_10px_rgba(34,197,94,0.4)]"></div>
+        </div>
+      </div>
+    ` : '';
 
     wrapper.id = `timeline-item-${index}`;
-    wrapper.className = `relative mb-12 w-full md:w-1/2 ${isEven ? 'md:mr-auto md:pr-12 md:text-right' : 'md:ml-auto md:pl-12 md:text-left'} pl-12 md:pl-0`;
+    wrapper.className = `relative mb-12 w-full md:w-1/2 ${isEven ? 'md:mr-auto md:pr-12 md:text-right' : 'md:ml-auto md:pl-12 md:text-left'} pl-12 md:pl-0 ${opacityClass}`;
 
     wrapper.innerHTML = `
-        <div class="${dotMobile} ${dotDesktop} transform md:translate-y-0 ${pulseClass}"></div>
-        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all duration-300 group">
-            <span class="inline-block mb-3 text-xs font-mono font-bold text-brand-accent tracking-tighter uppercase bg-brand-accent/5 px-2 py-0.5 rounded border border-brand-accent/10">
+        ${dotHtml}
+        <div class="bg-white dark:bg-brand-dark/40 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 backdrop-blur-sm hover:shadow-lg transition-all duration-300 group">
+            <span class="inline-block mb-3 text-xs font-mono font-bold tracking-tighter uppercase px-2 py-0.5 rounded border ${tagClass}">
               ${step.year}
             </span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-accent transition-colors">${step.title}</h3>
-            <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${step.desc}</p>
-             <div class="text-sm text-slate-500 dark:text-slate-400 flex items-center ${isEven ? 'md:justify-end' : ''}">
-               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-green-500 transition-colors uppercase tracking-tight">${step.title}</h3>
+            <p class="${cardFont} leading-relaxed mb-4">${step.desc}</p>
+             <div class="text-[11px] font-mono text-slate-500 dark:text-slate-500 flex items-center ${isEven ? 'md:justify-end' : ''}">
+               <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                ${step.location}
             </div>
+            ${statusBarHtml}
         </div>
     `;
 

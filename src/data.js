@@ -30,9 +30,9 @@ export const translations = {
                 },
                 {
                     year: "Upcoming",
-                    title: "The Sandbox",
-                    desc: "Actively exploring projects at the intersection of international management and finance. Initializing systems.",
-                    location: "Stealth Mode"
+                    title: "v2.0",
+                    desc: "Architecting a foundation in quantitative finance. Currently building systems for algorithmic analysis and fiscal modeling. v2.0 initializing.",
+                    location: "25.2048° N, 55.2708° E"
                 }
             ]
         },
@@ -87,9 +87,9 @@ export const translations = {
                 },
                 {
                     year: "Bevorstehend",
-                    title: "The Sandbox",
-                    desc: "Aktive Erforschung von Projekten im Bereich internationales Management und Finanzen. Systeme werden initialisiert.",
-                    location: "Stealth Mode"
+                    title: "v2.0",
+                    desc: "Architektur einer Grundlage in quantitativer Finanzierung. Derzeit Aufbau von Systemen für algorithmische Analyse und Fiskalmodellierung. v2.0 wird initialisiert.",
+                    location: "25.2048° N, 55.2708° E"
                 }
             ]
         },
@@ -144,9 +144,9 @@ export const translations = {
                 },
                 {
                     year: "ഉടൻ",
-                    title: "The Sandbox",
-                    desc: "അന്താരാഷ്ട്ര മാനേജ്മെന്റിലും ഫിനാൻസിലും പുതിയ പ്രോജക്റ്റുകൾ സജീവമായി പര്യവേക്ഷണം ചെയ്യുന്നു. സിസ്റ്റം ഇനീഷ്യലൈസ് ചെയ്യുന്നു.",
-                    location: "Stealth Mode"
+                    title: "v2.0",
+                    desc: "ക്വാണ്ടിറ്റേറ്റീവ് ഫിനാൻസിൽ ഒരു അടിത്തറ പാകുന്നു. നിലവിൽ അൽഗോരിതമിക് വിശകലനത്തിനും ഫിസ്കൽ മോഡലിംഗിനുമുള്ള സിസ്റ്റങ്ങൾ നിർമ്മിക്കുന്നു. v2.0 ഇനീഷ്യലൈസ് ചെയ്യുന്നു.",
+                    location: "25.2048° N, 55.2708° E"
                 }
             ]
         },
@@ -201,9 +201,9 @@ export const translations = {
                 },
                 {
                     year: "आगामी",
-                    title: "The Sandbox",
-                    desc: "अंतरराष्ट्रीय प्रबंधन और वित्त के संगम पर प्रोजेक्ट्स की सक्रिय खोज। सिस्टम शुरू किया जा रहा है।",
-                    location: "Stealth Mode"
+                    title: "v2.0",
+                    desc: "क्वांटिटेटिव फाइनेंस में एक आधार तैयार करना। वर्तमान में एल्गोरिदमिक विश्लेषण और राजकोषीय मॉडलिंग के लिए सिस्टम बना रहा हूँ। v2.0 शुरू किया जा रहा है।",
+                    location: "25.2048° N, 55.2708° E"
                 }
             ]
         },
